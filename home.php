@@ -45,11 +45,11 @@
                     Print "<tr>";
                         Print '<td align="center">'. $row['id'].'</td>';
                         Print '<td align="center">'. $row['details'].'</td>';
-                        Print '<td align="center">'. $row['date_posted'].'</td>';
-                        Print '<td align="center">'. $row['time_posted'].'</td>';
+                        Print '<td align="center">'. $row['date_posted']. "-" .$row['time_posted'].'</td>';
+                        Print '<td align="center">'. $row['date_edited']. "-" .$row['time_edited'].'</td>';
                         Print '<td align="center">'. $row['public'].'</td>';
-                        Print '<td align="center">.<a href="edit.php">Edit</a></td>';
-                        Print '<td align="center">.<a href="delete.php">Delete</a></td>';
+                        Print '<td align="center">.<a href="edit.php?id='.$row['id'].'">Edit</a></td>';
+                        Print '<td align="center">.<a href="delete.php?id='.$row['id'].'">Delete</a></td>';
                     Print "</tr>";
                 }
             ?>
