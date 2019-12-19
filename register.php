@@ -24,24 +24,26 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $bool = true;
     $query = mysqli_query($link,"SELECT * FROM users");
 
-    while($row = mysqli_fetch_array($query,MYSQLI_ASSOC)) {
+    while($row = mysqli_fetch_array($query)) {
 
         $table_users = $row['username'];
         if($username == $table_users) {
             $bool = false;
             Print '<script>alert("Username has been taken");</script>';
-            Print '<script>window.location.assign("register.php")</script>';
+            Print '<script>window.location.assign("register.php");</script>';
         }
     }
 
     if ($bool) {
         mysqli_query($link,"INSERT INTO users(username, password) VALUES ('$username','password')");
         Print '<script>alert("Successfully Registered");</script>';
-        Print '<script>window.location.assign("register.php")</script>';
+        Print '<script>window.location.assign("register.php");</script>';
     }
 
     echo "Username entered is: ". $username . "</br>";
     echo "Password entered is: ". $password;   
 }
+
+mysqli_close($link);
 
 ?>
