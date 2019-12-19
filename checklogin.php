@@ -14,17 +14,13 @@
     $table_password = "";
 
     if($exist > 0) {
-        while ($row = mysqli_fetch_assoc($query)) {
+            $row = mysqli_fetch_assoc($query);
             $table_users = $row['username'];
             $table_password = $row['password'];
-        }
-        if (($username == $table_users) && ($password == $table_password)) {
-                
-            if ($password == $table_password) {
+        
+        if (($username == $table_users) && ($password == $table_password)) {                  
                 $_SESSION['user'] = $username;
-                header("location: home.php");
-            }
-            
+                header("location: home.php");           
         }
         else {
             Print '<script>alert("Incorrect Password!");</script>';
