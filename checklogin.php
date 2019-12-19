@@ -1,7 +1,8 @@
 <?php
     session_start();
     
-    $link = mysqli_connect("localhost","root","toor","first_db") or die(mysqli_error($link));
+    $link = mysqli_connect("localhost","root","toor","first_db") 
+    or die(mysqli_error($link));
 
     $username = mysqli_real_escape_string($link, $_POST['username']);
     $password = mysqli_real_escape_string($link, $_POST['password']);
